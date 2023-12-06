@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Send Event Data</title>
+</head>
+<body>
+
+  <h1>Send Event Data</h1>
+
+  <form id="eventForm" onsubmit="submitForm(event)">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName"><br><br>
+    
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber"><br><br>
+    
+    <label for="email">Email ID:</label>
+    <input type="email" id="email" name="email"><br><br>
+    
+    <input type="submit" value="Submit Event Data">
+  </form>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+
+      const fullName = document.getElementById('fullName').value;
+      const phoneNumber = document.getElementById('phoneNumber').value;
+      const email = document.getElementById('email').value;
+
+      const eventData = {
+        "data": {
+          "submissionId": "dhruv2",
+          "formId": "dhruvP",
+          "fields": [
+            {
+              "label": "Full Name",
+              "type": "INPUT_TEXT",
+              "value": fullName
+            },
+            {
+              "label": "Mobile Number",
+              "type": "INPUT_PHONE_NUMBER",
+              "value": phoneNumber
+            },
+            {
+              "label": "Email ID",
+              "type": "INPUT_EMAIL",
+              "value": email
+            }
+          ]
+        }
+      };
+
+      const endpoint = 'https://sharpsell-demo.enparadigmtech.com/pyapi/submissions/5/tally'; // Replace with your actual endpoint URL
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData)
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log('Event data sent successfully!');
+          window.location.href = 'https://sharpsell-demo.enparadigmtech.com/reactdpe/submission/?submission_id=dhruv2'; // Redirect to Google
+        } else {
+          console.error('Error sending event data.');
+          // Handle errors here
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  </script>
+
+</body>
+</html>
