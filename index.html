@@ -30,7 +30,7 @@
 
       const eventData = {
         "data": {
-          "submissionId": "dhruv2",
+          "submissionId": "dhruv3",
           "formId": "dhruvP",
           "fields": [
             {
@@ -52,7 +52,7 @@
         }
       };
 
-      const endpoint = 'https://sharpsell-demo.enparadigmtech.com/pyapi/submissions/5/tally'; // Replace with your actual endpoint URL
+      const endpoint = 'https://sharpsell-demo.enparadigmtech.com/pyapi/submissions/7/tally'; // Replace with your actual endpoint URL
 
       fetch(endpoint, {
         method: 'POST',
@@ -64,7 +64,7 @@
       .then(response => {
         if (response.ok) {
           console.log('Event data sent successfully!');
-          window.location.href = 'https://sharpsell-demo.enparadigmtech.com/reactdpe/submission/?submission_id=dhruv2'; // Redirect to Google
+          window.location.href = 'https://sharpsell-demo.enparadigmtech.com/reactdpe/submission/?submission_id=dhruv3'; // Redirect to Google
         } else {
           console.error('Error sending event data.');
           // Handle errors here
