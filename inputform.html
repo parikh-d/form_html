@@ -163,30 +163,32 @@
 
       const eventData = {
         data: {
-          submissionId: submissionId,
-          formId: 'emiCalculator',
-          fields: [
+          "submissionId": submissionId,
+          "formId": 'emiCalculator',
+          "data":{
+            "fields": [
             {
-              label: 'Loan Amount',
-              type: 'INPUT_NUMBER',
-              value: loanAmount,
+              "label": "Loan Amount",
+              "type": "INPUT_NUMBER",
+              "value": loanAmount,
             },
             {
-              label: 'Tenure',
-              type: 'INPUT_NUMBER',
-              value: tenure,
+              "label": "Tenure",
+              "type": "INPUT_NUMBER",
+              "value": tenure,
             },
             {
-              label: 'Period',
-              type: 'INPUT_TEXT',
-              value: period,
+              "label": "Period",
+              "type": "INPUT_TEXT",
+              "value": period,
             },
             {
-              label: 'Interest Rate',
-              type: 'INPUT_NUMBER',
-              value: interestRate,
+              "label": "Interest Rate",
+              "type": "INPUT_NUMBER",
+              "value": interestRate,
             },
           ],
+          }
         },
       };
 
