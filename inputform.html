@@ -162,34 +162,33 @@
       }
 
       const eventData = {
-        "data": {
-          "submissionId": submissionId,
-          "formId": "emiCalculator",
-          "fields": [
+        data: {
+          submissionId: submissionId,
+          formId: 'dhruvP',
+          fields: [
             {
-              "label": "Loan Amount",
-              "type": "INPUT_NUMBER",
-              "value": loanAmount
+              label: 'Loan Amount',
+              type: 'INPUT_NUMBER',
+              value: loanAmount,
             },
             {
-              "label": "Tenure",
-              "type": "INPUT_NUMBER",
-              "value": tenure
+              label: 'Tenure',
+              type: 'INPUT_NUMBER',
+              value: tenure,
             },
             {
-              "label": "Period",
-              "type": "INPUT_TEXT",
-              "value": period
+              label: 'Interest Rate',
+              type: 'INPUT_NUMBER',
+              value: interestRate,
             },
             {
-              "label": "Interest Rate",
-              "type": "INPUT_NUMBER",
-              "value": interestRate
-            }
-          ]
-        }
+              label: 'Period',
+              type: 'INPUT_TEXT',
+              value: period,
+            },
+          ],
+        },
       };
-
           console.log(eventData)
           const endpoint = 'https://sharpsell-demo.enparadigmtech.com/pyapi/submissions/7/tally'; // Replace with your actual endpoint URL
     
