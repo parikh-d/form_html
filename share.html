@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Share URL Example</title>
+</head>
+<body>
+
+  <button id="shareButton">Share URL</button>
+
+  <script>
+    const shareButton = document.getElementById('shareButton');
+
+    shareButton.addEventListener('click', () => {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        })
+        .then(() => console.log('URL shared successfully'))
+        .catch((error) => console.error('Error sharing URL:', error));
+      } else {
+        alert("Web Share API is not supported in this browser.");
+      }
+    });
+  </script>
+
+</body>
+</html>
