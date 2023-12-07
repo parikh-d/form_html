@@ -164,7 +164,7 @@
       const eventData = {
         data: {
           "submissionId": submissionId,
-          "formId": 'emiCalculator',
+          "formId": "emiCalculator",
           "data":{
             "fields": [
             {
@@ -188,11 +188,11 @@
               "value": interestRate,
             },
           ],
-          }
+          },
         },
       };
 
-          console.log(submissionId)
+          console.log(eventData)
           const endpoint = 'https://sharpsell-demo.enparadigmtech.com/pyapi/submissions/7/tally'; // Replace with your actual endpoint URL
     
           fetch(endpoint, {
