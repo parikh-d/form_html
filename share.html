@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Share URL Example</title>
+  <title>Share Snapshot Example</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 </head>
 <body>
 
   <button id="shareButton">Share URL</button>
+  <button id="shareSnapshotButton">Share Snapshot</button>
 
   <script>
     const shareButton = document.getElementById('shareButton');
+    const shareSnapshotButton = document.getElementById('shareSnapshotButton');
 
     shareButton.addEventListener('click', () => {
       if (navigator.share) {
@@ -22,6 +25,37 @@
         alert("Web Share API is not supported in this browser.");
       }
     });
+
+    shareSnapshotButton.addEventListener('click', () => {
+      html2canvas(document.body).then(canvas => {
+        // Convert canvas to base64 image data
+        const imageData = canvas.toDataURL('image/png');
+
+        if (navigator.share) {
+          navigator.share({
+            title: document.title,
+            files: [new File([dataURItoBlob(imageData)], 'snapshot.png', { type: 'image/png' })]
+          })
+          .then(() => console.log('Snapshot shared successfully'))
+          .catch((error) => console.error('Error sharing snapshot:', error));
+        } else {
+          alert("Web Share API is not supported in this browser.");
+        }
+      });
+    });
+
+    function dataURItoBlob(dataURI) {
+      const byteString = atob(dataURI.split(',')[1]);
+      const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+      const ab = new ArrayBuffer(byteString.length);
+      const ia = new Uint8Array(ab);
+
+      for (let i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+      }
+
+      return new Blob([ab], { type: mimeString });
+    }
   </script>
 
 </body>
