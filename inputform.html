@@ -16,7 +16,8 @@
       background-color: #f4f4f4;
     }
     .container {
-      width: 400px;
+      width: 90%;
+      max-width: 400px;
       padding: 20px;
       background-color: #fff;
       border-radius: 8px;
@@ -79,6 +80,14 @@
     .result {
       font-weight: bold;
     }
+
+    /* Media query for responsiveness */
+    @media screen and (max-width: 500px) {
+      .container {
+        width: 100%;
+        border-radius: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -127,6 +136,7 @@
       interestDisplay.textContent = `${this.value}%`;
     });
 
+    // JavaScript code for EMI calculation remains the same
   </script>
     <script>
         function submitForm(event) {
