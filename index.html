@@ -42,7 +42,7 @@
 
       const eventData = {
         data: {
-          submissionId: "dhruv12",
+          submissionId: "D" + submissionId + "P",
           formId: 'dhruvP',
           fields: [
             {
@@ -77,7 +77,7 @@
           if (response.ok) {
             console.log('Event data sent successfully!');
             //window.location.href = 'https://www.sharpsell.ai';
-            window.location.href = 'https://sharpsell-demo.enparadigmtech.com/reactdpe/submission/?submission_id=dhruv12';
+            window.location.href = 'https://sharpsell-demo.enparadigmtech.com/reactdpe/submission/?submission_id=' + "D" + submissionId + "P";
           } else {
             console.error('Error sending event data.');
             // Handle errors here
