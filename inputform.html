@@ -118,41 +118,41 @@
 
   <script>
     // Function to parse URL parameters
-    function getParameterByName(name, url) {
-      if (!url) url = window.location.href;
-      name = name.replace(/[\[\]]/g, '\\$&');
-      const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-      const results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
+    // function getParameterByName(name, url) {
+    //   if (!url) url = window.location.href;
+    //   name = name.replace(/[\[\]]/g, '\\$&');
+    //   const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+    //   const results = regex.exec(url);
+    //   if (!results) return null;
+    //   if (!results[2]) return '';
+    //   return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    // }
 
-    // Get parameters from the URL
-    const loanAmountParam = getParameterByName('loanAmount');
-    const tenureParam = getParameterByName('tenure');
-    const interestRateParam = getParameterByName('interestRate');
-    const periodParam = getParameterByName('period');
+    // // Get parameters from the URL
+    // const loanAmountParam = getParameterByName('loanAmount');
+    // const tenureParam = getParameterByName('tenure');
+    // const interestRateParam = getParameterByName('interestRate');
+    // const periodParam = getParameterByName('period');
 
-    // Set parameters as default values in the form fields
-    if (loanAmountParam) {
-      document.getElementById('loanAmount').value = loanAmountParam;
-    }
-    if (tenureParam) {
-      document.getElementById('tenure').value = tenureParam;
-    }
-    if (interestRateParam) {
-      document.getElementById('interestRate').value = interestRateParam;
-    }
-    if (periodParam) {
-      if (periodParam.toLowerCase() === 'years') {
-        document.getElementById('yearsBtn').classList.add('active');
-        document.getElementById('monthsBtn').classList.remove('active');
-      } else {
-        document.getElementById('monthsBtn').classList.add('active');
-        document.getElementById('yearsBtn').classList.remove('active');
-      }
-    }
+    // // Set parameters as default values in the form fields
+    // if (loanAmountParam) {
+    //   document.getElementById('loanAmount').value = loanAmountParam;
+    // }
+    // if (tenureParam) {
+    //   document.getElementById('tenure').value = tenureParam;
+    // }
+    // if (interestRateParam) {
+    //   document.getElementById('interestRate').value = interestRateParam;
+    // }
+    // if (periodParam) {
+    //   if (periodParam.toLowerCase() === 'years') {
+    //     document.getElementById('yearsBtn').classList.add('active');
+    //     document.getElementById('monthsBtn').classList.remove('active');
+    //   } else {
+    //     document.getElementById('monthsBtn').classList.add('active');
+    //     document.getElementById('yearsBtn').classList.remove('active');
+    //   }
+    // }
 
 
     const monthsBtn = document.getElementById('monthsBtn');
