@@ -117,6 +117,24 @@
   </div>
 
   <script>
+    // Function to parse URL parameters
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, '\\$&');
+      const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+      const results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Get the loan amount parameter from the URL
+    const loanAmountParam = getParameterByName('loanAmount');
+    if (loanAmountParam) {
+      // Set the loan amount parameter as the default value in the input field
+      document.getElementById('loanAmount').value = loanAmountParam;
+    }
+
     const monthsBtn = document.getElementById('monthsBtn');
     const yearsBtn = document.getElementById('yearsBtn');
     const interestRate = document.getElementById('interestRate');
@@ -166,31 +184,31 @@
           "submissionId": "D" + submissionId + "P",
           "formId": "dhruvP",
           "data": {          
-          "fields": [
-            {
-              "label": "Loan Amount",
-              "type": "INPUT_NUMBER",
-              "value": loanAmount
-            },
-            {
-              "label": "Tenure",
-              "type": "INPUT_NUMBER",
-              "value": tenure
-            },
-            {
-              "label": "Interest Rate",
-              "type": "INPUT_NUMBER",
-              "value": interestRate
-            },
-            {
-              "label": "Period",
-              "type": "INPUT_TEXT",
-              "value": period
-            }
-          ]
+            "fields": [
+              {
+                "label": "Loan Amount",
+                "type": "INPUT_NUMBER",
+                "value": loanAmount
+              },
+              {
+                "label": "Tenure",
+                "type": "INPUT_NUMBER",
+                "value": tenure
+              },
+              {
+                "label": "Interest Rate",
+                "type": "INPUT_NUMBER",
+                "value": interestRate
+              },
+              {
+                "label": "Period",
+                "type": "INPUT_TEXT",
+                "value": period
+              }
+            ]
+          }
         }
-      }
-    };
+      };
           console.log(eventData)
           const endpoint = 'https://sharpsell-demo.enparadigmtech.com/pyapi/submissions/7/tally'; // Replace with your actual endpoint URL
     
